@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPKSP - Potato Farming Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #7cb342;
+            --light-color: #f1f8e9;
+            --dark-color: #1b5e20;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518977676601-b53f82aba655');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        .feature-card {
+            border-radius: 10px;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+        }
+        .price-table th {
+            background-color: var(--light-color);
+        }
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">IPKSP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#market-prices">Market Prices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#weather-alerts">Weather & Alerts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seed-sources">Seed Sources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cold-storage">Cold Storage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#e-learning">E-Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-2">Login</button>
+                    <button class="btn btn-light">Register</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Welcome to IPKSP</h1>
+            <p class="lead">Your comprehensive resource for potato farming in Kenya</p>
+            <p>Empowering farmers, traders, researchers, students, and lecturers with valuable knowledge</p>
+            <div class="mt-4">
+                <button class="btn btn-primary btn-lg me-2">Explore Services</button>
+                <button class="btn btn-outline-light btn-lg">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How IPKSP Works</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-graph-up service-icon"></i>
+                            <h5 class="card-title">Market Prices</h5>
+                            <p class="card-text">Get daily updates on potato prices by market, variety, and grade.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cloud-sun service-icon"></i>
+                            <h5 class="card-title">Weather Alerts</h5>
+                            <p class="card-text">Receive country-level weather forecasts and disease alerts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-book service-icon"></i>
+                            <h5 class="card-title">E-Learning</h5>
+                            <p class="card-text">Access training modules, videos, and quizzes to enhance your knowledge.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-newspaper service-icon"></i>
+                            <h5 class="card-title">Research Data</h5>
+                            <p class="card-text">Access the latest research findings and datasets on potato farming.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Prices Section -->
+    <section id="market-prices" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Market Prices</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Daily Potato Prices</h3>
+                    <p>Set the latest daily potato prices by various parties, including access to materials, for informed trading and farming decisions.</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped price-table">
+                            <thead>
+                                <tr>
+                                    <th>Market</th>
+                                    <th>Variety</th>
+                                    <th>Price (KES/kg)</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nairobi</td>
+                                    <td>Shangi</td>
+                                    <td>45.00</td>
+                                    <td class="text-success">+2.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Eldoret</td>
+                                    <td>Tigoni</td>
+                                    <td>38.50</td>
+                                    <td class="text-danger">-1.2%</td>
+                                </tr>
+                                <tr>
+                                    <td>Mombasa</td>
+                                    <td>Dutch Robjin</td>
+                                    <td>52.75</td>
+                                    <td class="text-success">+3.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>Nakuru</td>
+                                    <td>Shangi</td>
+                                    <td>42.30</td>
+                                    <td class="text-success">+0.5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-primary mt-3">View All Prices</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Price Comparison</h4>
+                            <p>Compare potato prices across different markets to identify the best opportunities.</p>
+                            <canvas id="priceChart" height="250"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather & Disease Alerts -->
+    <section id="weather-alerts" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Weather & Disease Alerts</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Weather Forecast</h3>
+                    <p>Key information on how weather impacts potato crops. Get accurate, timely updates for every region in Kenya.</p>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">7-Day Forecast</h5>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Condition</th>
+                                            <th>High (°C)</th>
+                                            <th>Low (°C)</th>
+                                            <th>Rain (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Today</td>
+                                            <td><i class="bi bi-cloud-sun"></i> Partly Cloudy</td>
+                                            <td>24</td>
+                                            <td>14</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tomorrow</td>
+                                            <td><i class="bi bi-cloud-rain"></i> Light Rain</td>
+                                            <td>22</td>
+                                            <td>15</td>
+                                            <td>65</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Day 3</td>
+                                            <td><i class="bi bi-cloud-sun"></i> Partly Cloudy</td>
+                                            <td>25</td>
+                                            <td>16</td>
+                                            <td>30</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Disease Alerts</h3>
+                    <p>Early warning signs for potato diseases to help maintain high food quality and yield.</p>
+                    <div class="alert alert-warning">
+                        <h5><i class="bi bi-exclamation-triangle-fill"></i> Late Blight Alert</h5>
+                        <p>High risk of late blight in Central and Rift Valley regions due to recent weather conditions.</p>
+                        <button class="btn btn-sm btn-outline-warning">View Recommendations</button>
+                    </div>
+                    <div class="alert alert-danger">
+                        <h5><i class="bi bi-exclamation-triangle-fill"></i> Bacterial Wilt Warning</h5>
+                        <p>Cases reported in Nakuru County. Implement control measures immediately.</p>
+                        <button class="btn btn-sm btn-outline-danger">Learn More</button>
+                    </div>
+                    <button class="btn btn-primary mt-2">Subscribe to Alerts</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seed Sources -->
+    <section id="seed-sources" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Certified Seed Sources</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Find Certified Potato Seeds</h3>
+                    <p>Access a list of trusted and certified seed providers to ensure optimal crop yield and quality.</p>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Seed Suppliers</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Kenya Plant Health Inspectorate Service (KEPHIS)
+                                    <span class="badge bg-primary">Nakuru</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Agrico East Africa
+                                    <span class="badge bg-primary">Nairobi</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Kenya Agricultural & Livestock Research Organization (KALRO)
+                                    <span class="badge bg-primary">Multiple</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Simlaw Seeds
+                                    <span class="badge bg-primary">Nairobi</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Stock Availability</h5>
+                            <p>Stay informed about market trends and seed availability to plan your purchases accordingly.</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Variety</th>
+                                            <th>Supplier</th>
+                                            <th>Available</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Shangi</td>
+                                            <td>KEPHIS</td>
+                                            <td><span class="badge bg-success">In Stock</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tigoni</td>
+                                            <td>Agrico EA</td>
+                                            <td><span class="badge bg-warning">Limited</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dutch Robjin</td>
+                                            <td>KALRO</td>
+                                            <td><span class="badge bg-success">In Stock</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cold Storage -->
+    <section id="cold-storage" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Cold Storage Facilities</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Find Cold Storage Near You</h3>
+                    <p>Discover the locations of potato cold storage facilities across Kenya to keep your produce fresh.</p>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Facility Directory</h5>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Search by location...">
+                                <button class="btn btn-primary" type="button">Search</button>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Njoro Cold Storage
+                                    <span class="badge bg-primary">Njoro</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Eldoret Potato Store
+                                    <span class="badge bg-primary">Eldoret</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Nairobi Fresh Produce Hub
+                                    <span class="badge bg-primary">Nairobi</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8545604774936!2d36.82154831475397!3d-1.268635599074824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173c0a1f9d27%3A0x4433a9e5f06e4b1f!2sKALRO%20Njoro!5e0!3m2!1sen!2ske!4v1623935400000!5m2!1sen!2ske" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary">View All Facilities</button>
+                        <button class="btn btn-outline-primary ms-2">Booking Information</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Learning -->
+    <section id="e-learning" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">E-Learning Modules</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" class="card-img-top" alt="Potato Farming">
+                        <div class="card-body">
+                            <h5 class="card-title">Basic Potato Farming</h5>
+                            <p class="card-text">Learn the fundamentals of potato cultivation, from land preparation to harvesting.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">Beginner</span>
+                                <button class="btn btn-sm btn-outline-primary">Start Course</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce" class="card-img-top" alt="Disease Management">
+                        <div class="card-body">
+                            <h5 class="card-title">Disease Management</h5>
+                            <p class="card-text">Identify and control common potato diseases to protect your yield.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-warning">Intermediate</span>
+                                <button class="btn btn-sm btn-outline-primary">Start Course</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="card-img-top" alt="Market Strategies">
+                        <div class="card-body">
+                            <h5 class="card-title">Market Strategies</h5>
+                            <p class="card-text">Maximize your profits with effective potato marketing and sales techniques.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Advanced</span>
+                                <button class="btn btn-sm btn-outline-primary">Start Course</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary">View All Courses</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Blog Posts</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655" class="card-img-top" alt="Blog Post">
+                        <div class="card-body">
+                            <h5 class="card-title">New Potato Varieties for 2023</h5>
+                            <p class="card-text">Discover the latest high-yielding and disease-resistant potato varieties now available in Kenya.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">June 15, 2023</small>
+                                <button class="btn btn-sm btn-outline-primary">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce" class="card-img-top" alt="Blog Post">
+                        <div class="card-body">
+                            <h5 class="card-title">Managing Late Blight</h5>
+                            <p class="card-text">Effective strategies to identify and control late blight in your potato farm.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">May 28, 2023</small>
+                                <button class="btn btn-sm btn-outline-primary">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="card-img-top" alt="Blog Post">
+                        <div class="card-body">
+                            <h5 class="card-title">Market Trends Analysis</h5>
+                            <p class="card-text">Understanding the current potato market trends and future projections.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">April 10, 2023</small>
+                                <button class="btn btn-sm btn-outline-primary">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary">View All Posts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2>Stay Updated</h2>
+                    <p class="lead">Subscribe to our newsletter to receive the latest market prices, weather alerts, and farming tips.</p>
+                    <div class="input-group mb-3 mx-auto" style="max-width: 500px;">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-light" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>IPKSP</h5>
+                    <p>Comprehensive resource for potato farming in Kenya.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#market-prices" class="text-white">Market Prices</a></li>
+                        <li><a href="#weather-alerts" class="text-white">Weather Alerts</a></li>
+                        <li><a href="#seed-sources" class="text-white">Seed Sources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#cold-storage" class="text-white">Cold Storage</a></li>
+                        <li><a href="#e-learning" class="text-white">E-Learning</a></li>
+                        <li><a href="#blog" class="text-white">Blog</a></li>
+                        <li><a href="#" class="text-white">Research Data</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <p><i class="bi bi-geo-alt"></i> Nairobi, Kenya</p>
+                        <p><i class="bi bi-envelope"></i> info@ipksp.co.ke</p>
+                        <p><i class="bi bi-phone"></i> +254 700 000000</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 IPKSP. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Price Chart
+        const priceCtx = document.getElementById('priceChart').getContext('2d');
+        const priceChart = new Chart(priceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Nairobi', 'Eldoret', 'Mombasa', 'Nakuru'],
+                datasets: [{
+                    label: 'Price (KES/kg)',
+                    data: [45.00, 38.50, 52.75, 42.30],
+                    backgroundColor: [
+                        'rgba(46, 125, 50, 0.7)',
+                        'rgba(46, 125, 50, 0.7)',
+                        'rgba(46, 125, 50, 0.7)',
+                        'rgba(46, 125, 50, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(46, 125, 50, 1)',
+                        'rgba(46, 125, 50, 1)',
+                        'rgba(46, 125, 50, 1)',
+                        'rgba(46, 125, 50, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
